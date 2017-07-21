@@ -1,11 +1,11 @@
-﻿using FN.Store.Domain.Entities;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
+using FN.Store.Domain.Entities;
 
 namespace FN.Store.UI.ApiClient
 {
@@ -14,15 +14,13 @@ namespace FN.Store.UI.ApiClient
         static void Main(string[] args)
         {
 
-            using(var client = new HttpClient())
+            using (var client = new HttpClient())
             {
                 var response = client.GetAsync("http://localhost:14369/api/clientes").Result;
-
                 if (response.IsSuccessStatusCode)
                 {
-                    var clientes = JsonConvert.DeserializeObject<IEnumerable<Cliente>>(response.Content.ReadAsStringAsync().Result);
-
-                    Console.WriteLine("StatusCode: {0}" + response.StatusCode);
+                    var clientes =
+                        JsonConvert.DeserializeObject<IEnumerable<Cliente>>(response.Content.ReadAsStringAsync().Result);
 
                     clientes.ToList().ForEach(cli =>
                     {
@@ -30,10 +28,12 @@ namespace FN.Store.UI.ApiClient
                     });
 
                 }
-                else
-                {
-                    Console.WriteLine("Erro ao obter os clientes HttpStatus " + response.StatusCode);
+                else {
+                    Console.WriteLine("Erro ao obter os clientes");
                 }
+
+                Console.ReadLine();
+
 
             }
 

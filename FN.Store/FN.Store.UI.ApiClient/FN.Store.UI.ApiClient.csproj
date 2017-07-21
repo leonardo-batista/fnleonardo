@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09717660-614C-4853-8B20-C8EBC2B98000}</ProjectGuid>
+    <ProjectGuid>{6EC21D00-4D58-4AF3-829A-675198981C77}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FN.Store.UI.ApiClient</RootNamespace>
